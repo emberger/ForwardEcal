@@ -3,13 +3,11 @@
 #----------------------------------------------------------------------------
 # Setup the project
 #
-cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 project(B4c)
 
 set(CMAKE_PREFIX_PATH $ENV{ROOTSYS})
 #find_package(ROOT REQUIRED COMPONENTS RIO Net)
-
-
 
 
 set(CMAKE_MODULE_PATH $ENV{ROOTSYS}/etc/cmake)
@@ -48,6 +46,18 @@ endif()
 include(${Geant4_USE_FILE})
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
+#------------------------------------------------------
+#Find and include Eigen
+
+#list(APPEND CMAKE_MODULE_PATH $ENV{EIGEN})
+#find_package(Eigen3 REQUIRED)
+
+#SET( EIGEN3_INCLUDE_DIR "$ENV{EIGEN3_INCLUDE_DIR}" )
+#IF( NOT EIGEN3_INCLUDE_DIR )
+#    MESSAGE( FATAL_ERROR "Please point the environment variable EIGEN3_INCLUDE_DIR to the include directory of your Eigen3 installation.")
+#ENDIF()
+#INCLUDE_DIRECTORIES (${EIGEN3_INCLUDE_DIR})
+
 #----------------------------------------------------------------------------
 # Locate sources and headers for this project
 # NB: headers are included so they will show up in IDEs
@@ -65,7 +75,7 @@ add_executable(exampleB4c exampleB4c.cc ${sources} ${headers})
 add_executable(Analysis AnalysisMain.cc ${sources} ${headers})
 
 target_link_libraries(exampleB4c ${Geant4_LIBRARIES} ${ROOT_LIBRARIES} )#RootLib)
-target_link_libraries(Analysis ${Geant4_LIBRARIES} ${ROOT_LIBRARIES} )#RootLib)
+target_link_libraries(Analysis  ${Geant4_LIBRARIES} ${ROOT_LIBRARIES} )#RootLib)
 
 #target_link_libraries(exampleB4c ${Geant4_LIBRARIES})
 

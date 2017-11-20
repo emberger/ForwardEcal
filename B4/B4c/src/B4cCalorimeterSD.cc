@@ -70,6 +70,7 @@ B4cCalorimeterSD::~B4cCalorimeterSD()
 
 void B4cCalorimeterSD::Initialize(G4HCofThisEvent* hce)
 {
+        eges=0;
         // Create hits collection
         fHitsCollection
                 = new B4cCalorHitsCollection(SensitiveDetectorName, collectionName[0]);
@@ -83,12 +84,13 @@ void B4cCalorimeterSD::Initialize(G4HCofThisEvent* hce)
                 //create Hits
                 //Calculate number of collection cells, add additional ones for each layer and another one for total accounting
 
-                G4int nofEnt=10000;
+                //G4int nofEnt=10000;
 
 
-                for (G4int i=0; i<nofEnt; i++ ) {
-                        fHitsCollection->insert(new B4cCalorHit());
-                }
+
+
+                fHitsCollection->insert(new B4cCalorHit());
+
         }
 
 //if (this->GetName()="AbsorberSD"){
@@ -109,6 +111,7 @@ void B4cCalorimeterSD::Initialize(G4HCofThisEvent* hce)
 G4bool B4cCalorimeterSD::ProcessHits(G4Step* step,
                                      G4TouchableHistory* ROhist)
 {
+
         // G4int photNR=0;
         //
         // B4cTrackInformation* info = (B4cTrackInformation*)(step->GetTrack()->GetUserInformation());
@@ -120,7 +123,7 @@ G4bool B4cCalorimeterSD::ProcessHits(G4Step* step,
 
         // energy deposit
         auto edep = step->GetTotalEnergyDeposit();
-
+        eges+=edep;
         // step length
         G4double stepLength = 0.;
         if ( step->GetTrack()->GetDefinition()->GetPDGCharge() != 0. ) {
@@ -128,6 +131,7 @@ G4bool B4cCalorimeterSD::ProcessHits(G4Step* step,
         }
 
         if ( edep==0. && stepLength == 0. ) return false;
+        fHitsCollection->insert(new B4cCalorHit());
 
         auto touchable = (step->GetPreStepPoint()->GetTouchable());
 
@@ -176,7 +180,7 @@ G4bool B4cCalorimeterSD::ProcessHits(G4Step* step,
 
 //        auto hitLayer = (*fHitsCollection)[ROLayerID];
         // Get hit for total accounting
-        auto hitTotal = (*fHitsCollection)[fHitsCollection->entries()-1];
+
 
         // Add values to cell information
         hit->Add(edep, stepLength);
@@ -200,13 +204,7 @@ G4bool B4cCalorimeterSD::ProcessHits(G4Step* step,
         //         hitLayer->SetY(0.); //
         // }
         //Add energydepositon for total accounting
-        hitTotal->Add(edep, stepLength);
-        if(hitTotal->GetTouch()==false) {
-                hitTotal->SetZ(0.); //
-                hitTotal->SetX(0.); //Set X, Y, Z to zero to prevent random coordinates
-                hitTotal->SetY(0.); //
-                hitTotal->SetTouch();
-        }
+
         //std::cout<<"HitID: "<<ROHitID<<std::endl;
         ROHitID++;
 
@@ -217,6 +215,14 @@ G4bool B4cCalorimeterSD::ProcessHits(G4Step* step,
 
 void B4cCalorimeterSD::EndOfEvent(G4HCofThisEvent*)
 {
+        auto hitTotal = (*fHitsCollection)[fHitsCollection->entries()-1];
+        hitTotal->Add(eges, 1.);
+        if(hitTotal->GetTouch()==false) {
+                hitTotal->SetZ(0.); //
+                hitTotal->SetX(0.); //Set X, Y, Z to zero to prevent random coordinates
+                hitTotal->SetY(0.); //
+                hitTotal->SetTouch();
+        }
         if ( verboseLevel>1 ) {
                 auto nofHits = fHitsCollection->entries();
                 G4cout
@@ -226,6 +232,7 @@ void B4cCalorimeterSD::EndOfEvent(G4HCofThisEvent*)
                 for ( G4int i=0; i<nofHits; i++ ) (*fHitsCollection)[i]->Print();
         }
         ROHitID=0;
+        eges=0;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

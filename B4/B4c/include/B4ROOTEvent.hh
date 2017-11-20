@@ -107,6 +107,8 @@ Double_t m_tilesizeX;
 Double_t m_tilesizeY;
 Double_t m_calsizeXY;
 
+Bool_t absofirst;
+
 
 
 
@@ -164,6 +166,10 @@ Double_t TilesizeY(){
 }
 Double_t calsizeXY(){
 								return m_calsizeXY;
+}
+
+Bool_t GetAbsFirst(){
+								return absofirst;
 }
 
 
@@ -230,7 +236,9 @@ void SetTilesizeY(Double_t tsY){
 void SetcalsizeXY(Double_t cxy){
 								m_calsizeXY=cxy;
 }
-
+void SetAbsFirst(Bool_t cfg){
+								absofirst=cfg;
+}
 
 // void SetEnergyPhoton1(Double_t eph1){
 //         m_EnergyPhoton1=eph1;

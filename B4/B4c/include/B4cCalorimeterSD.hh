@@ -68,6 +68,7 @@ private:
 B4cCalorHitsCollection* fHitsCollection;
 G4int fNofCells;
 G4int ROHitID;
+G4double eges;
 
 G4double StilesPerLayer;
 G4double ScellsPerStrip;

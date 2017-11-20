@@ -5,14 +5,18 @@
 #include "TStyle.h"
 #include "TChain.h"
 #include "TROOTAnalysis.hh"
+//#include "PrincipalComponentAnalysis.h"
 #include <stdlib.h>
+#include <memory>
+#include "TMath.h"
 
 
 int main(int argc, char * argv[]) {
 
         std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
-
-        TApplication* app = new TApplication("app", 0, 0, 0);
+        std::unique_ptr<TApplication> app(new TApplication("app", 0, 0, 0));
+        //auto app=make_unique<TApplication>("app", 0, 0, 0);
+        //TApplication* app = new TApplication("app", 0, 0, 0);
 //
 //    gStyle->SetCanvasBorderMode(0);
 //    gStyle->SetPadBorderMode(0);
@@ -33,27 +37,100 @@ int main(int argc, char * argv[]) {
 //    gStyle->SetLabelSize(0.04,"xy");
 //    gStyle->SetTitleOffset(1.3,"x");
 //    gStyle->SetTitleOffset(1.3,"y");
+        Double_t cut= std::stod(argv[1]);
+        // std::string treepath= argv[2];
+        // std::string anapath= argv[5];
 
-        TChain * ch1 = new TChain("eventTree");
-        ch1->Add("AbsoFirst.root");
+        std::unique_ptr<TChain> ch1(new TChain("eventTree"));
+        ch1->Add("SinglePhoton.root");
         ch1->Draw("");
-        std::cout<<"hello"<<std::endl;
+        //std::cout<<"hello"<<std::endl;
         TROOTAnalysis A(ch1);
 
-        Int_t event=0;
+        //A.SetPathandFilename(argv[3], argv[4]);
+
+
+
+        Double_t entries=A.GetNofEntries();
+        Int_t eventA=0;
+
         Int_t progress=0;
         //A.SampleFromHIst();
-        for(Int_t i=0; i<A.GetNofEntries(); i++) {
+        //A.CalcAngularResolution(anapath);
 
+        //shared_ptr<B4ROOTEvent> Cevent(new B4ROOTEvent());
+        //EcalTree->SetBranchAddress("EventBranch", &Cevent);
+
+        std::unique_ptr<TCanvas> cdir(new TCanvas("PCAReconstruction"));
+
+        cdir->Divide(3,1,0.01,0.01);
+
+        std::unique_ptr<TH1D> hx(new TH1D("xdirection", "xdirection", 1000,-3,3));
+        std::unique_ptr<TH1D> hy(new TH1D("ydirection", "ydirection", 1000,-3,3));
+        std::unique_ptr<TH1D> hz(new TH1D("zdirection", "zxdirection", 1000,-3,3));
+
+        hx->GetXaxis()->SetTitle("X component of Direction Vector");
+        hy->GetXaxis()->SetTitle("Y component of Direction Vector");
+        hz->GetXaxis()->SetTitle("Z component of Direction Vector");
+
+        hx->GetYaxis()->SetTitle("Entries");
+        hy->GetYaxis()->SetTitle("Entries");
+        hz->GetYaxis()->SetTitle("Entries");
+
+
+
+        A.flg=false;
+        //entries=100000;
+        for(Int_t i=0; i<entries; i++) {
+
+                A.EcalTree->GetEntry(i);
+
+                A.ApplyCut(cut);
+                //A.PrintEdep();
+                if(A.PCAEvent(i)) {
+
+
+
+                        TVector3 direction=A.EstimatePhoton1[eventA].second.Unit();
+
+                        //std::cout<<"Direction: "<<std::endl;
+                        hx->Fill(direction.Z());
+                        hy->Fill(direction.Y());
+                        hz->Fill(direction.X());
+
+                        // A.CalcCOGPion(eventA);
+                        // A.FitCOGsPion(eventA);
+
+                        eventA++;
+                }
+
+                progress = ((Double_t)i /entries) * 100;
+
+
+                if ((Int_t)progress % 5 == 0)
+                {
+                        std::cout << "\r" << std::string(progress/5, '|') << progress << "%";
+                        std::cout.flush();
+                }
+        }
+
+        std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+        std::cout << "Computing took "
+                  << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
+                  <<" milliseconds"<<std::endl;
+        start = std::chrono::steady_clock::now();
+
+        A.DirectionPhoton1.clear();
+        A.flg=true;
+        for(Int_t i=0; i<entries; i++) {
+
+                A.EcalTree->GetEntry(i);
+
+                A.ApplyCut(cut);
 
 
                 A.CalcCOGPion(i);
                 A.FitCOGsPion(i);
-                //A.PlotProjection(event);
-
-
-
-                //A.FitCOGsPion2(event);
 
                 //std::pair<TVector3, TVector3> ca= A.FindClosestApproach(event);
 
@@ -62,28 +139,38 @@ int main(int argc, char * argv[]) {
 
 
                 //A.PionLocator(event, ca);
+                progress = ((Double_t)i /entries) * 100;
 
 
-
-
-
-                // progress = (i /A.GetNofEntries() ) * 100;
-                // if (progress % 5 == 0)
-                // {
-                //         std::cout << "\r" << std::string(progress/5, '|') << progress << "%";
-                //         std::cout.flush();
-                // }
+                if ((Int_t)progress % 5 == 0)
+                {
+                        std::cout << "\r" << std::string(progress/5, '|') << progress << "%";
+                        std::cout.flush();
+                }
         }
 
+        TF1 *f1 = new TF1("f1","gaus",-1,1);
+        f1->SetRange(-1,1);
+        gStyle->SetOptFit(111111111);
 
+        cdir->cd(1);
+        //hx->Fit(f1, "L", "",-1,1);
+        hx->Draw();
+
+        cdir->cd(2);
+        //hy->Fit(f1, "L", "", -1,1);
+        hy->Draw();
+
+        cdir->cd(3);
+        //hz->Fit(f1, "L", "", -1,1);
+        hz->Draw();
 
         A.DrawHists();
 
-
-        std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+        end = std::chrono::steady_clock::now();
         std::cout << "Computing took "
-                  << std::chrono::duration_cast<std::chrono::seconds>(end - start).count()
-                  <<" seconds"<<std::endl;
+                  << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
+                  <<" milliseconds"<<std::endl;
         app->Run();
         return 0;
 }

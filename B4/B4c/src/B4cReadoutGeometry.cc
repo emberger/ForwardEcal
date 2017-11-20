@@ -40,14 +40,15 @@ MyRO::~MyRO(){
 G4VPhysicalVolume* MyRO::Build(){
 
 								// Geometry parameters also for Detector Construction
-								GetInst().SetfNofLayers(50);
+								GetInst().SetfNofLayers(100);		// in #
 								GetInst().SetcalorSizeXY(2000); // in mm
 								GetInst().SettileLenX(10); // in mm
 								GetInst().SettileLenY(10); // in mm
 
-								GetInst().SetabsoThickness(1.8); // in mm
-								GetInst().SetgapThickness(10); // in mm
+								GetInst().SetabsoThickness(1); // in mm
+								GetInst().SetgapThickness(20); // in mm
 
+								GetInst().SetAbsFirst(true);    // true if structure should be |Abso-Gap|Abso-Gap|... false if structure should be |Gap-Abso|Gap-Abso|...
 
 
 								GetInst().SetWorldMult(10.);//in mm
@@ -151,14 +152,30 @@ G4VPhysicalVolume* MyRO::Build(){
 																=new G4LogicalVolume(GapS,
 																																					dummyMat,
 																																					"Gap");
-								new G4PVPlacement(0,
-																										G4ThreeVector(0., 0., GetInst().GetabsoThickness()/2 ),
-																										GapLV,
-																										"Gap",
-																										ROlayerLV,
-																										false,
-																										0,
-																										true);
+								if(GetInst().GetAbsFirst()) {
+
+																new G4PVPlacement(0,
+																																		G4ThreeVector(0., 0., GetInst().GetabsoThickness()/2 ),
+																																		GapLV,
+																																		"Gap",
+																																		ROlayerLV,
+																																		false,
+																																		0,
+																																		true);
+
+
+								}
+								else{
+																new G4PVPlacement(0,
+																																		G4ThreeVector(0., 0., -GetInst().GetabsoThickness()/2 ),
+																																		GapLV,
+																																		"Gap",
+																																		ROlayerLV,
+																																		false,
+																																		0,
+																																		true);
+
+								}
 								//build strips parallel to X axis
 
 								auto StripS

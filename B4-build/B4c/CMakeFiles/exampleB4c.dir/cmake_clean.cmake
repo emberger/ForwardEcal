@@ -15,6 +15,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/exampleB4c.dir/src/B4cTrackInformation.cc.o"
   "CMakeFiles/exampleB4c.dir/src/B4cTrackingAction.cc.o"
   "CMakeFiles/exampleB4c.dir/src/Minimizer.cc.o"
+  "CMakeFiles/exampleB4c.dir/src/PCAToy.cc.o"
   "CMakeFiles/exampleB4c.dir/src/RootClasses_dict.cc.o"
   "CMakeFiles/exampleB4c.dir/src/TROOTAnalysis.cc.o"
   "exampleB4c.pdb"

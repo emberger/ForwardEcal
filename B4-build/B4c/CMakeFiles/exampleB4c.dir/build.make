@@ -441,9 +441,33 @@ B4c/CMakeFiles/exampleB4c.dir/src/Minimizer.cc.o.provides: B4c/CMakeFiles/exampl
 B4c/CMakeFiles/exampleB4c.dir/src/Minimizer.cc.o.provides.build: B4c/CMakeFiles/exampleB4c.dir/src/Minimizer.cc.o
 
 
+B4c/CMakeFiles/exampleB4c.dir/src/PCAToy.cc.o: B4c/CMakeFiles/exampleB4c.dir/flags.make
+B4c/CMakeFiles/exampleB4c.dir/src/PCAToy.cc.o: /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4/B4c/src/PCAToy.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object B4c/CMakeFiles/exampleB4c.dir/src/PCAToy.cc.o"
+	cd /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/B4c && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB4c.dir/src/PCAToy.cc.o -c /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4/B4c/src/PCAToy.cc
+
+B4c/CMakeFiles/exampleB4c.dir/src/PCAToy.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/exampleB4c.dir/src/PCAToy.cc.i"
+	cd /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/B4c && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4/B4c/src/PCAToy.cc > CMakeFiles/exampleB4c.dir/src/PCAToy.cc.i
+
+B4c/CMakeFiles/exampleB4c.dir/src/PCAToy.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB4c.dir/src/PCAToy.cc.s"
+	cd /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/B4c && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4/B4c/src/PCAToy.cc -o CMakeFiles/exampleB4c.dir/src/PCAToy.cc.s
+
+B4c/CMakeFiles/exampleB4c.dir/src/PCAToy.cc.o.requires:
+
+.PHONY : B4c/CMakeFiles/exampleB4c.dir/src/PCAToy.cc.o.requires
+
+B4c/CMakeFiles/exampleB4c.dir/src/PCAToy.cc.o.provides: B4c/CMakeFiles/exampleB4c.dir/src/PCAToy.cc.o.requires
+	$(MAKE) -f B4c/CMakeFiles/exampleB4c.dir/build.make B4c/CMakeFiles/exampleB4c.dir/src/PCAToy.cc.o.provides.build
+.PHONY : B4c/CMakeFiles/exampleB4c.dir/src/PCAToy.cc.o.provides
+
+B4c/CMakeFiles/exampleB4c.dir/src/PCAToy.cc.o.provides.build: B4c/CMakeFiles/exampleB4c.dir/src/PCAToy.cc.o
+
+
 B4c/CMakeFiles/exampleB4c.dir/src/RootClasses_dict.cc.o: B4c/CMakeFiles/exampleB4c.dir/flags.make
 B4c/CMakeFiles/exampleB4c.dir/src/RootClasses_dict.cc.o: /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4/B4c/src/RootClasses_dict.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object B4c/CMakeFiles/exampleB4c.dir/src/RootClasses_dict.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object B4c/CMakeFiles/exampleB4c.dir/src/RootClasses_dict.cc.o"
 	cd /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/B4c && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB4c.dir/src/RootClasses_dict.cc.o -c /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4/B4c/src/RootClasses_dict.cc
 
 B4c/CMakeFiles/exampleB4c.dir/src/RootClasses_dict.cc.i: cmake_force
@@ -467,7 +491,7 @@ B4c/CMakeFiles/exampleB4c.dir/src/RootClasses_dict.cc.o.provides.build: B4c/CMak
 
 B4c/CMakeFiles/exampleB4c.dir/src/TROOTAnalysis.cc.o: B4c/CMakeFiles/exampleB4c.dir/flags.make
 B4c/CMakeFiles/exampleB4c.dir/src/TROOTAnalysis.cc.o: /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4/B4c/src/TROOTAnalysis.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object B4c/CMakeFiles/exampleB4c.dir/src/TROOTAnalysis.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object B4c/CMakeFiles/exampleB4c.dir/src/TROOTAnalysis.cc.o"
 	cd /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/B4c && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB4c.dir/src/TROOTAnalysis.cc.o -c /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4/B4c/src/TROOTAnalysis.cc
 
 B4c/CMakeFiles/exampleB4c.dir/src/TROOTAnalysis.cc.i: cmake_force
@@ -507,6 +531,7 @@ exampleB4c_OBJECTS = \
 "CMakeFiles/exampleB4c.dir/src/B4cTrackInformation.cc.o" \
 "CMakeFiles/exampleB4c.dir/src/B4cTrackingAction.cc.o" \
 "CMakeFiles/exampleB4c.dir/src/Minimizer.cc.o" \
+"CMakeFiles/exampleB4c.dir/src/PCAToy.cc.o" \
 "CMakeFiles/exampleB4c.dir/src/RootClasses_dict.cc.o" \
 "CMakeFiles/exampleB4c.dir/src/TROOTAnalysis.cc.o"
 
@@ -529,6 +554,7 @@ B4c/exampleB4c: B4c/CMakeFiles/exampleB4c.dir/src/B4cReadoutGeometry.cc.o
 B4c/exampleB4c: B4c/CMakeFiles/exampleB4c.dir/src/B4cTrackInformation.cc.o
 B4c/exampleB4c: B4c/CMakeFiles/exampleB4c.dir/src/B4cTrackingAction.cc.o
 B4c/exampleB4c: B4c/CMakeFiles/exampleB4c.dir/src/Minimizer.cc.o
+B4c/exampleB4c: B4c/CMakeFiles/exampleB4c.dir/src/PCAToy.cc.o
 B4c/exampleB4c: B4c/CMakeFiles/exampleB4c.dir/src/RootClasses_dict.cc.o
 B4c/exampleB4c: B4c/CMakeFiles/exampleB4c.dir/src/TROOTAnalysis.cc.o
 B4c/exampleB4c: B4c/CMakeFiles/exampleB4c.dir/build.make
@@ -577,7 +603,7 @@ B4c/exampleB4c: /remote/pcilc7/software/Geant4/geant4.10.03.p01-install/lib/libG
 B4c/exampleB4c: /remote/pcilc7/software/Geant4/geant4.10.03.p01-install/lib/libG4global.so
 B4c/exampleB4c: /remote/pcilc7/software/Geant4/geant4.10.03.p01-install/lib/libG4clhep.so
 B4c/exampleB4c: B4c/CMakeFiles/exampleB4c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable exampleB4c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX executable exampleB4c"
 	cd /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/B4c && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/exampleB4c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -601,6 +627,7 @@ B4c/CMakeFiles/exampleB4c.dir/requires: B4c/CMakeFiles/exampleB4c.dir/src/B4cRea
 B4c/CMakeFiles/exampleB4c.dir/requires: B4c/CMakeFiles/exampleB4c.dir/src/B4cTrackInformation.cc.o.requires
 B4c/CMakeFiles/exampleB4c.dir/requires: B4c/CMakeFiles/exampleB4c.dir/src/B4cTrackingAction.cc.o.requires
 B4c/CMakeFiles/exampleB4c.dir/requires: B4c/CMakeFiles/exampleB4c.dir/src/Minimizer.cc.o.requires
+B4c/CMakeFiles/exampleB4c.dir/requires: B4c/CMakeFiles/exampleB4c.dir/src/PCAToy.cc.o.requires
 B4c/CMakeFiles/exampleB4c.dir/requires: B4c/CMakeFiles/exampleB4c.dir/src/RootClasses_dict.cc.o.requires
 B4c/CMakeFiles/exampleB4c.dir/requires: B4c/CMakeFiles/exampleB4c.dir/src/TROOTAnalysis.cc.o.requires
 

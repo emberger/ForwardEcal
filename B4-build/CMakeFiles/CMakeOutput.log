@@ -28,28 +28,28 @@ The CXX compiler identification is GNU, found in "/home/iwsatlas1/emberger/Geant
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_6575a/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_6575a.dir/build.make CMakeFiles/cmTC_6575a.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_3dc47/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_3dc47.dir/build.make CMakeFiles/cmTC_3dc47.dir/build
 gmake[1]: Entering directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_6575a.dir/testCCompiler.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_6575a.dir/testCCompiler.c.o   -c /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_6575a
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6575a.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_6575a.dir/testCCompiler.c.o  -o cmTC_6575a -rdynamic 
+Building C object CMakeFiles/cmTC_3dc47.dir/testCCompiler.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_3dc47.dir/testCCompiler.c.o   -c /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_3dc47
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3dc47.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_3dc47.dir/testCCompiler.c.o  -o cmTC_3dc47 -rdynamic 
 gmake[1]: Leaving directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_75fdb/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_75fdb.dir/build.make CMakeFiles/cmTC_75fdb.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_843e2/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_843e2.dir/build.make CMakeFiles/cmTC_843e2.dir/build
 gmake[1]: Entering directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_75fdb.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_75fdb.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.7/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_75fdb
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_75fdb.dir/link.txt --verbose=1
-/usr/bin/cc      -v CMakeFiles/cmTC_75fdb.dir/CMakeCCompilerABI.c.o  -o cmTC_75fdb -rdynamic  
+Building C object CMakeFiles/cmTC_843e2.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_843e2.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.7/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_843e2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_843e2.dir/link.txt --verbose=1
+/usr/bin/cc      -v CMakeFiles/cmTC_843e2.dir/CMakeCCompilerABI.c.o  -o cmTC_843e2 -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
@@ -59,8 +59,8 @@ Thread model: posix
 gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_75fdb' '-rdynamic' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_75fdb /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_75fdb.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_843e2' '-rdynamic' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_843e2 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_843e2.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
 gmake[1]: Leaving directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
 
 
@@ -68,14 +68,14 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_75fdb/fast"]
-  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_75fdb.dir/build.make CMakeFiles/cmTC_75fdb.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_843e2/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_843e2.dir/build.make CMakeFiles/cmTC_843e2.dir/build]
   ignore line: [gmake[1]: Entering directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_75fdb.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_75fdb.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.7/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_75fdb]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_75fdb.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_75fdb.dir/CMakeCCompilerABI.c.o  -o cmTC_75fdb -rdynamic  ]
+  ignore line: [Building C object CMakeFiles/cmTC_843e2.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_843e2.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.7/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_843e2]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_843e2.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_843e2.dir/CMakeCCompilerABI.c.o  -o cmTC_843e2 -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper]
@@ -85,8 +85,8 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_75fdb' '-rdynamic' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_75fdb /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_75fdb.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_843e2' '-rdynamic' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_843e2 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_843e2.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/collect2] ==> ignore
     arg [--sysroot=/] ==> ignore
     arg [--build-id] ==> ignore
@@ -100,7 +100,7 @@ Parsed C implicit link information from above output:
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_75fdb] ==> ignore
+    arg [cmTC_843e2] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o] ==> ignore
@@ -112,7 +112,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..]
-    arg [CMakeFiles/cmTC_75fdb.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_843e2.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -146,14 +146,14 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_6418c/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_6418c.dir/build.make CMakeFiles/cmTC_6418c.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_2ec97/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_2ec97.dir/build.make CMakeFiles/cmTC_2ec97.dir/build
 gmake[1]: Entering directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_6418c.dir/feature_tests.c.o
-/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_6418c.dir/feature_tests.c.o   -c /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_6418c
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6418c.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_6418c.dir/feature_tests.c.o  -o cmTC_6418c -rdynamic 
+Building C object CMakeFiles/cmTC_2ec97.dir/feature_tests.c.o
+/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_2ec97.dir/feature_tests.c.o   -c /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_2ec97
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2ec97.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_2ec97.dir/feature_tests.c.o  -o cmTC_2ec97 -rdynamic 
 gmake[1]: Leaving directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
 
 
@@ -166,14 +166,14 @@ gmake[1]: Leaving directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_c7234/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_c7234.dir/build.make CMakeFiles/cmTC_c7234.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_d7b6d/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_d7b6d.dir/build.make CMakeFiles/cmTC_d7b6d.dir/build
 gmake[1]: Entering directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_c7234.dir/feature_tests.c.o
-/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_c7234.dir/feature_tests.c.o   -c /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_c7234
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c7234.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_c7234.dir/feature_tests.c.o  -o cmTC_c7234 -rdynamic 
+Building C object CMakeFiles/cmTC_d7b6d.dir/feature_tests.c.o
+/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_d7b6d.dir/feature_tests.c.o   -c /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_d7b6d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d7b6d.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_d7b6d.dir/feature_tests.c.o  -o cmTC_d7b6d -rdynamic 
 gmake[1]: Leaving directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
 
 
@@ -186,14 +186,14 @@ gmake[1]: Leaving directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_a8e78/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_a8e78.dir/build.make CMakeFiles/cmTC_a8e78.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_7c583/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_7c583.dir/build.make CMakeFiles/cmTC_7c583.dir/build
 gmake[1]: Entering directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_a8e78.dir/feature_tests.c.o
-/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_a8e78.dir/feature_tests.c.o   -c /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_a8e78
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a8e78.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_a8e78.dir/feature_tests.c.o  -o cmTC_a8e78 -rdynamic 
+Building C object CMakeFiles/cmTC_7c583.dir/feature_tests.c.o
+/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_7c583.dir/feature_tests.c.o   -c /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_7c583
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7c583.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_7c583.dir/feature_tests.c.o  -o cmTC_7c583 -rdynamic 
 gmake[1]: Leaving directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
 
 
@@ -204,28 +204,28 @@ gmake[1]: Leaving directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_30429/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_30429.dir/build.make CMakeFiles/cmTC_30429.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_f12e0/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_f12e0.dir/build.make CMakeFiles/cmTC_f12e0.dir/build
 gmake[1]: Entering directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_30429.dir/testCXXCompiler.cxx.o
-/usr/bin/c++      -o CMakeFiles/cmTC_30429.dir/testCXXCompiler.cxx.o -c /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_30429
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_30429.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_30429.dir/testCXXCompiler.cxx.o  -o cmTC_30429 -rdynamic 
+Building CXX object CMakeFiles/cmTC_f12e0.dir/testCXXCompiler.cxx.o
+/usr/bin/c++      -o CMakeFiles/cmTC_f12e0.dir/testCXXCompiler.cxx.o -c /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_f12e0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f12e0.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_f12e0.dir/testCXXCompiler.cxx.o  -o cmTC_f12e0 -rdynamic 
 gmake[1]: Leaving directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_6f8fd/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_6f8fd.dir/build.make CMakeFiles/cmTC_6f8fd.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_9e325/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_9e325.dir/build.make CMakeFiles/cmTC_9e325.dir/build
 gmake[1]: Entering directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_6f8fd.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++      -o CMakeFiles/cmTC_6f8fd.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.7/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_6f8fd
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6f8fd.dir/link.txt --verbose=1
-/usr/bin/c++       -v CMakeFiles/cmTC_6f8fd.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_6f8fd -rdynamic  
+Building CXX object CMakeFiles/cmTC_9e325.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++      -o CMakeFiles/cmTC_9e325.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.7/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_9e325
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9e325.dir/link.txt --verbose=1
+/usr/bin/c++       -v CMakeFiles/cmTC_9e325.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_9e325 -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
@@ -235,8 +235,8 @@ Thread model: posix
 gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6f8fd' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_6f8fd /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_6f8fd.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9e325' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_9e325 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_9e325.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
 gmake[1]: Leaving directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
 
 
@@ -244,14 +244,14 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_6f8fd/fast"]
-  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_6f8fd.dir/build.make CMakeFiles/cmTC_6f8fd.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_9e325/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_9e325.dir/build.make CMakeFiles/cmTC_9e325.dir/build]
   ignore line: [gmake[1]: Entering directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_6f8fd.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_6f8fd.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.7/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_6f8fd]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6f8fd.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_6f8fd.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_6f8fd -rdynamic  ]
+  ignore line: [Building CXX object CMakeFiles/cmTC_9e325.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_9e325.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.7/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_9e325]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9e325.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_9e325.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_9e325 -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper]
@@ -261,8 +261,8 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6f8fd' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_6f8fd /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_6f8fd.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9e325' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_9e325 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_9e325.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/collect2] ==> ignore
     arg [--sysroot=/] ==> ignore
     arg [--build-id] ==> ignore
@@ -276,7 +276,7 @@ Parsed CXX implicit link information from above output:
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_6f8fd] ==> ignore
+    arg [cmTC_9e325] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o] ==> ignore
@@ -288,7 +288,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..]
-    arg [CMakeFiles/cmTC_6f8fd.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_9e325.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -320,14 +320,14 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++1y] compiler features compiled with the following output:
 Change Dir: /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_b4398/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_b4398.dir/build.make CMakeFiles/cmTC_b4398.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_06745/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_06745.dir/build.make CMakeFiles/cmTC_06745.dir/build
 gmake[1]: Entering directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_b4398.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++1y -o CMakeFiles/cmTC_b4398.dir/feature_tests.cxx.o -c /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_b4398
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b4398.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_b4398.dir/feature_tests.cxx.o  -o cmTC_b4398 -rdynamic 
+Building CXX object CMakeFiles/cmTC_06745.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++1y -o CMakeFiles/cmTC_06745.dir/feature_tests.cxx.o -c /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_06745
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_06745.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_06745.dir/feature_tests.cxx.o  -o cmTC_06745 -rdynamic 
 gmake[1]: Leaving directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
 
 
@@ -393,14 +393,14 @@ gmake[1]: Leaving directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_e4cbb/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_e4cbb.dir/build.make CMakeFiles/cmTC_e4cbb.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_6f24b/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_6f24b.dir/build.make CMakeFiles/cmTC_6f24b.dir/build
 gmake[1]: Entering directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_e4cbb.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_e4cbb.dir/feature_tests.cxx.o -c /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_e4cbb
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e4cbb.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_e4cbb.dir/feature_tests.cxx.o  -o cmTC_e4cbb -rdynamic 
+Building CXX object CMakeFiles/cmTC_6f24b.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_6f24b.dir/feature_tests.cxx.o -c /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_6f24b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6f24b.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_6f24b.dir/feature_tests.cxx.o  -o cmTC_6f24b -rdynamic 
 gmake[1]: Leaving directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
 
 
@@ -466,14 +466,14 @@ gmake[1]: Leaving directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_6e3ca/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_6e3ca.dir/build.make CMakeFiles/cmTC_6e3ca.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_00dca/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_00dca.dir/build.make CMakeFiles/cmTC_00dca.dir/build
 gmake[1]: Entering directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_6e3ca.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_6e3ca.dir/feature_tests.cxx.o -c /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_6e3ca
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6e3ca.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_6e3ca.dir/feature_tests.cxx.o  -o cmTC_6e3ca -rdynamic 
+Building CXX object CMakeFiles/cmTC_00dca.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_00dca.dir/feature_tests.cxx.o -c /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_00dca
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_00dca.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_00dca.dir/feature_tests.cxx.o  -o cmTC_00dca -rdynamic 
 gmake[1]: Leaving directory `/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build/CMakeFiles/CMakeTmp'
 
 

@@ -63,6 +63,9 @@ G4double GettilesPerLayer();
 G4double GetWorldSizeXY();
 G4double GetWorldSizeZ();
 
+void SetAbsFirst(G4bool cfg);
+G4bool GetAbsFirst();
+
 //G4double GetGunPos();
 
 private:
@@ -90,7 +93,7 @@ G4double WorldMult;
 
 G4double GunPos;
 
-
+G4bool absofirst;
 
 DetParams(){
 }

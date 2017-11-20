@@ -101,3 +101,10 @@ G4double DetParams::GetWorldSizeXY(){
 G4double DetParams::GetWorldSizeZ(){
 								return WorldSizeZ;
 }
+
+void DetParams::SetAbsFirst(G4bool cfg){
+								absofirst=cfg;
+}
+G4bool DetParams::GetAbsFirst(){
+								return absofirst;
+}

@@ -1,39 +1,13 @@
-
 #!/bin/bash
 
-Path=/home/iwsatlas1/emberger/Geant4/Current/SensitiveDetector/B4-build/B4c
 
-FILES=/home/iwsatlas1/emberger/Geant4/Current/SensitiveDetector/B4-build/B4c/rmsx_over_E/10cm/02/*.root
+Path=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor
 
-mkdir $Path/rmsx_over_E_analysis/10cm/02
+FILES=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/rmsx_over_E_Cu2mm_absfirst_20x20mmGran_100layers/*.root
 
-AnaPath=$Path/rmsx_over_E_analysis/10cm/02
+mkdir $Path/rmsx_over_E_Cu2mm_absfirst_20x20mmGran_100layers_analysis/
 
-
-counter=0
-for f in $FILES
-do
-    #echo "$f"
-    FilePath=$f
-    filename="${FilePath##*/}"
-
-    foldername=${filename%_*}
-
-    mkdir $AnaPath/$foldername
-
-    ./Analysis 1 50 0 1000 0 $FilePath $AnaPath/$foldername 102
-
-
-done
-
-
-Path=/home/iwsatlas1/emberger/Geant4/Current/SensitiveDetector/B4-build/B4c
-
-FILES=/home/iwsatlas1/emberger/Geant4/Current/SensitiveDetector/B4-build/B4c/rmsx_over_E/10cm/04/*.root
-
-mkdir $Path/rmsx_over_E_analysis/10cm/04
-
-AnaPath=$Path/rmsx_over_E_analysis/10cm/04
+AnaPath=$Path/rmsx_over_E_Cu2mm_absfirst_20x20mmGran_100layers_analysis/
 
 
 counter=0
@@ -45,20 +19,20 @@ do
 
     foldername=${filename%_*}
 
-    mkdir $AnaPath/$foldername
+    # mkdir $AnaPath
 
-    ./Analysis 1 50 0 1000 0 $FilePath $AnaPath/$foldername 107
+    ./Analysis 1000 $FilePath $AnaPath $foldername
 
 
 done
 
-Path=/home/iwsatlas1/emberger/Geant4/Current/SensitiveDetector/B4-build/B4c
+Path=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/
 
-FILES=/home/iwsatlas1/emberger/Geant4/Current/SensitiveDetector/B4-build/B4c/rmsx_over_E/20cm/02/*.root
+FILES=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/rmsx_over_E_Pb1mm_absfirst_20x20mmGran_100layers/*.root
 
-mkdir $Path/rmsx_over_E_analysis/20cm/02
+mkdir $Path/rmsx_over_E_Pb1mm_absfirst_20x20mmGran_100layers_analysis/
 
-AnaPath=$Path/rmsx_over_E_analysis/20cm/02
+AnaPath=$Path/rmsx_over_E_Pb1mm_absfirst_20x20mmGran_100layers_analysis/
 
 
 counter=0
@@ -70,34 +44,362 @@ do
 
     foldername=${filename%_*}
 
-    mkdir $AnaPath/$foldername
+    #mkdir $AnaPath
 
-    ./Analysis 1 50 0 1000 0 $FilePath $AnaPath/$foldername 203
-
-
-done
-
-Path=/home/iwsatlas1/emberger/Geant4/Current/SensitiveDetector/B4-build/B4c
-
-FILES=/home/iwsatlas1/emberger/Geant4/Current/SensitiveDetector/B4-build/B4c/rmsx_over_E/20cm/04/*.root
-
-mkdir $Path/rmsx_over_E_analysis/20cm/04
-
-AnaPath=$Path/rmsx_over_E_analysis/20cm/04
-
-
-counter=0
-for f in $FILES
-do
-    #echo "$f"
-    FilePath=$f
-    filename="${FilePath##*/}"
-
-    foldername=${filename%_*}
-
-    mkdir $AnaPath/$foldername
-
-    ./Analysis 1 50 0 1000 0 $FilePath $AnaPath/$foldername 215
+    ./Analysis 1000 $FilePath $AnaPath $foldername
 
 
 done
+#
+# Path=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/
+#
+# FILES=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/rmsx_over_E_Pb1mm_absfirst_40x40mmGran/gamma1500MeV_0.4:0.4_.root
+#
+# mkdir $Path/rmsx_over_E_Pb1mm_absfirst_40x40mmGran_analysis/
+#
+# AnaPath=$Path/rmsx_over_E_Pb1mm_absfirst_40x40mmGran_analysis/
+#
+#
+# counter=0
+# for f in $FILES
+# do
+#     #echo "$f"
+#     FilePath=$f
+#     filename="${FilePath##*/}"
+#
+#     foldername=${filename%_*}
+#
+#    # mkdir $AnaPath
+#
+#     ./Analysis 1000 $FilePath $AnaPath $foldername
+#
+#
+# done
+#
+# Path=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/
+#
+# FILES=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/rmsx_over_E_Pb1mm_absfirst_50x50mmGran/gamma1500MeV_0.4:0.4_.root
+#
+# mkdir $Path/rmsx_over_E_Pb1mm_absfirst_50x50mmGran_analysis/
+#
+# AnaPath=$Path/rmsx_over_E_Pb1mm_absfirst_50x50mmGran_analysis/
+#
+#
+# counter=0
+# for f in $FILES
+# do
+#     #echo "$f"
+#     FilePath=$f
+#     filename="${FilePath##*/}"
+#
+#     foldername=${filename%_*}
+#
+#     # mkdir $AnaPath
+#
+#     ./Analysis 1000 $FilePath $AnaPath $foldername
+#
+#
+# done
+#
+# Path=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor
+#
+# FILES=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/rmsx_over_E_Pb1mm_gapfirst_10x10mmGran/gamma1500MeV_0.4:0.4_.root
+#
+# mkdir $Path/rmsx_over_E_Pb1mm_gapfirst_10x10mmGran_analysis/
+#
+# AnaPath=$Path/rmsx_over_E_Pb1mm_gapfirst_10x10mmGran_analysis/
+#
+#
+# counter=0
+# for f in $FILES
+# do
+#     #echo "$f"
+#     FilePath=$f
+#     filename="${FilePath##*/}"
+#
+#     foldername=${filename%_*}
+#
+#     # mkdir $AnaPath
+#
+#     ./Analysis 1000 $FilePath $AnaPath $foldername
+#
+#
+# done
+#
+# Path=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/
+#
+# FILES=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/rmsx_over_E_Pb1mm_gapfirst_20x20mmGran/gamma1500MeV_0.4:0.4_.root
+#
+# mkdir $Path/rmsx_over_E_Pb1mm_gapfirst_20x20mmGran_analysis/
+#
+# AnaPath=$Path/rmsx_over_E_Pb1mm_gapfirst_20x20mmGran_analysis/
+#
+#
+# counter=0
+# for f in $FILES
+# do
+#     #echo "$f"
+#     FilePath=$f
+#     filename="${FilePath##*/}"
+#
+#     foldername=${filename%_*}
+#
+#     #mkdir $AnaPath
+#
+#     ./Analysis 1000 $FilePath $AnaPath $foldername
+#
+#
+# done
+#
+# Path=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/
+#
+# FILES=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/rmsx_over_E_Pb1mm_gapfirst_40x40mmGran/gamma1500MeV_0.4:0.4_.root
+#
+# mkdir $Path/rmsx_over_E_Pb1mm_gapfirst_40x40mmGran_analysis/
+#
+# AnaPath=$Path/rmsx_over_E_Pb1mm_gapfirst_40x40mmGran_analysis/
+#
+#
+# counter=0
+# for f in $FILES
+# do
+#     #echo "$f"
+#     FilePath=$f
+#     filename="${FilePath##*/}"
+#
+#     foldername=${filename%_*}
+#
+#    # mkdir $AnaPath
+#
+#     ./Analysis 1000 $FilePath $AnaPath $foldername
+#
+#
+# done
+#
+# Path=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/
+#
+# FILES=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/rmsx_over_E_Pb1mm_gapfirst_50x50mmGran/gamma1500MeV_0.4:0.4_.root
+#
+# mkdir $Path/rmsx_over_E_Pb1mm_gapfirst_50x50mmGran_analysis/
+#
+# AnaPath=$Path/rmsx_over_E_Pb1mm_gapfirst_50x50mmGran_analysis/
+#
+#
+# counter=0
+# for f in $FILES
+# do
+#     #echo "$f"
+#     FilePath=$f
+#     filename="${FilePath##*/}"
+#
+#     foldername=${filename%_*}
+#
+#     # mkdir $AnaPath
+#
+#     ./Analysis 1000 $FilePath $AnaPath $foldername
+#
+#
+# done
+#
+#
+#
+#
+# Path=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor
+#
+# FILES=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/rmsx_over_E_Cu2mm_absfirst_10x10mmGran/gamma1500MeV_0.4:0.4_.root
+#
+# mkdir $Path/rmsx_over_E_Cu2mm_absfirst_10x10mmGran_analysis/
+#
+# AnaPath=$Path/rmsx_over_E_Cu2mm_absfirst_10x10mmGran_analysis/
+#
+#
+# counter=0
+# for f in $FILES
+# do
+#     #echo "$f"
+#     FilePath=$f
+#     filename="${FilePath##*/}"
+#
+#     foldername=${filename%_*}
+#
+#     # mkdir $AnaPath
+#
+#     ./Analysis 1000 $FilePath $AnaPath $foldername
+#
+#
+# done
+#
+# Path=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/
+#
+# FILES=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/rmsx_over_E_Cu2mm_absfirst_20x20mmGran/gamma1500MeV_0.4:0.4_.root
+#
+# mkdir $Path/rmsx_over_E_Cu2mm_absfirst_20x20mmGran_analysis/
+#
+# AnaPath=$Path/rmsx_over_E_Cu2mm_absfirst_20x20mmGran_analysis/
+#
+#
+# counter=0
+# for f in $FILES
+# do
+#     #echo "$f"
+#     FilePath=$f
+#     filename="${FilePath##*/}"
+#
+#     foldername=${filename%_*}
+#
+#     #mkdir $AnaPath
+#
+#     ./Analysis 1000 $FilePath $AnaPath $foldername
+#
+#
+# done
+#
+# Path=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/
+#
+# FILES=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/rmsx_over_E_Cu2mm_absfirst_40x40mmGran/gamma1500MeV_0.4:0.4_.root
+#
+# mkdir $Path/rmsx_over_E_Cu2mm_absfirst_40x40mmGran_analysis/
+#
+# AnaPath=$Path/rmsx_over_E_Cu2mm_absfirst_40x40mmGran_analysis/
+#
+#
+# counter=0
+# for f in $FILES
+# do
+#     #echo "$f"
+#     FilePath=$f
+#     filename="${FilePath##*/}"
+#
+#     foldername=${filename%_*}
+#
+#    # mkdir $AnaPath
+#
+#     ./Analysis 1000 $FilePath $AnaPath $foldername
+#
+#
+# done
+#
+# Path=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/
+#
+# FILES=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/rmsx_over_E_Cu2mm_absfirst_50x50mmGran/gamma1500MeV_0.4:0.4_.root
+#
+# mkdir $Path/rmsx_over_E_Cu2mm_absfirst_50x50mmGran_analysis/
+#
+# AnaPath=$Path/rmsx_over_E_Cu2mm_absfirst_50x50mmGran_analysis/
+#
+#
+# counter=0
+# for f in $FILES
+# do
+#     #echo "$f"
+#     FilePath=$f
+#     filename="${FilePath##*/}"
+#
+#     foldername=${filename%_*}
+#
+#     # mkdir $AnaPath
+#
+#     ./Analysis 1000 $FilePath $AnaPath $foldername
+#
+#
+# done
+#
+# Path=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor
+#
+# FILES=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/rmsx_over_E_Cu2mm_gapfirst_10x10mmGran/gamma1500MeV_0.4:0.4_.root
+#
+# mkdir $Path/rmsx_over_E_Cu2mm_gapfirst_10x10mmGran_analysis/
+#
+# AnaPath=$Path/rmsx_over_E_Cu2mm_gapfirst_10x10mmGran_analysis/
+#
+#
+# counter=0
+# for f in $FILES
+# do
+#     #echo "$f"
+#     FilePath=$f
+#     filename="${FilePath##*/}"
+#
+#     foldername=${filename%_*}
+#
+#     # mkdir $AnaPath
+#
+#     ./Analysis 1000 $FilePath $AnaPath $foldername
+#
+#
+# done
+#
+# Path=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/
+#
+# FILES=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/rmsx_over_E_Cu2mm_gapfirst_20x20mmGran/gamma1500MeV_0.4:0.4_.root
+#
+# mkdir $Path/rmsx_over_E_Cu2mm_gapfirst_20x20mmGran_analysis/
+#
+# AnaPath=$Path/rmsx_over_E_Cu2mm_gapfirst_20x20mmGran_analysis/
+#
+#
+# counter=0
+# for f in $FILES
+# do
+#     #echo "$f"
+#     FilePath=$f
+#     filename="${FilePath##*/}"
+#
+#     foldername=${filename%_*}
+#
+#     #mkdir $AnaPath
+#
+#     ./Analysis 1000 $FilePath $AnaPath $foldername
+#
+#
+# done
+#
+# Path=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/
+#
+# FILES=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/rmsx_over_E_Cu2mm_gapfirst_40x40mmGran/gamma1500MeV_0.4:0.4_.root
+#
+# mkdir $Path/rmsx_over_E_Cu2mm_gapfirst_40x40mmGran_analysis/
+#
+# AnaPath=$Path/rmsx_over_E_Cu2mm_gapfirst_40x40mmGran_analysis/
+#
+#
+# counter=0
+# for f in $FILES
+# do
+#     #echo "$f"
+#     FilePath=$f
+#     filename="${FilePath##*/}"
+#
+#     foldername=${filename%_*}
+#
+#    # mkdir $AnaPath
+#
+#     ./Analysis 1000 $FilePath $AnaPath $foldername
+#
+#
+# done
+#
+# Path=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/
+#
+# FILES=/home/iwsatlas1/emberger/Geant4/Data/ForwardCalor/rmsx_over_E_Cu2mm_gapfirst_50x50mmGran/gamma1500MeV_0.4:0.4_.root
+#
+# mkdir $Path/rmsx_over_E_Cu2mm_gapfirst_50x50mmGran_analysis/
+#
+# AnaPath=$Path/rmsx_over_E_Cu2mm_gapfirst_50x50mmGran_analysis/
+#
+#
+# counter=0
+# for f in $FILES
+# do
+#     #echo "$f"
+#     FilePath=$f
+#     filename="${FilePath##*/}"
+#
+#     foldername=${filename%_*}
+#
+#     # mkdir $AnaPath
+#
+#     ./Analysis 1000 $FilePath $AnaPath $foldername
+#
+#
+# done

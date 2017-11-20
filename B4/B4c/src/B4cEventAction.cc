@@ -230,6 +230,7 @@ void B4cEventAction::EndOfEventAction(const G4Event* event)
         this->CalEvent()->SetTilesizeX(GetInst().GettileLenX());
         this->CalEvent()->SetTilesizeY(GetInst().GettileLenY());
         this->CalEvent()->SetcalsizeXY(GetInst().GetcalorSizeXY());
+        this->CalEvent()->SetAbsFirst(GetInst().GetAbsFirst());
         //this->CalEvent()->SetEnergyPhoton1(GetEInst().GetEnergyPh1());
         //this->CalEvent()->SetEnergyPhoton2(GetEInst().GetEnergyPh2());
         TVector3 vertpos(event->GetPrimaryVertex()->GetPosition().getX(),event->GetPrimaryVertex()->GetPosition().getY(),event->GetPrimaryVertex()->GetPosition().getZ());

@@ -296,16 +296,28 @@ G4VPhysicalVolume* B4cDetectorConstruction::DefineVolumes()
                 absorberMaterial,  // its material
                 "AbsoLV");         // its name
 
-        new G4PVPlacement(
-                0,                 // no rotation
-                G4ThreeVector(0., 0., -(GetInst().GetgapThickness()/2)),  // its position
-                absorberLV,        // its logical volume
-                "Abso",            // its name
-                layerLV,           // its mother  volume
-                false,             // no boolean operation
-                0,                 // copy number
-                fCheckOverlaps);   // checking overlaps
-
+        if(GetInst().GetAbsFirst()) {
+                new G4PVPlacement(
+                        0,         // no rotation
+                        G4ThreeVector(0., 0., -(GetInst().GetgapThickness()/2)), // its position
+                        absorberLV, // its logical volume
+                        "Abso",    // its name
+                        layerLV,   // its mother  volume
+                        false,     // no boolean operation
+                        0,         // copy number
+                        fCheckOverlaps); // checking overlaps
+        }
+        else{
+                new G4PVPlacement(
+                        0,   // no rotation
+                        G4ThreeVector(0., 0., (GetInst().GetgapThickness()/2)), // its position
+                        absorberLV, // its logical volume
+                        "Abso", // its name
+                        layerLV, // its mother  volume
+                        false, // no boolean operation
+                        0,   // copy number
+                        fCheckOverlaps); // checking overlaps
+        }
         //
         // Gap
         //
@@ -319,15 +331,29 @@ G4VPhysicalVolume* B4cDetectorConstruction::DefineVolumes()
                 gapMaterial,       // its material
                 "GapLV");          // its name
 
-        new G4PVPlacement(
-                0,                 // no rotation
-                G4ThreeVector(0., 0., GetInst().GetabsoThickness()/2),  // its position
-                gapLV,             // its logical volume
-                "Gap",             // its name
-                layerLV,           // its mother  volume
-                false,             // no boolean operation
-                0,                 // copy number
-                fCheckOverlaps);   // checking overlaps
+        if(GetInst().GetAbsFirst()) {
+                new G4PVPlacement(
+                        0,         // no rotation
+                        G4ThreeVector(0., 0., GetInst().GetabsoThickness()/2), // its position
+                        gapLV,     // its logical volume
+                        "Gap",     // its name
+                        layerLV,   // its mother  volume
+                        false,     // no boolean operation
+                        0,         // copy number
+                        fCheckOverlaps); // checking overlaps
+        }
+        else{
+                new G4PVPlacement(
+                        0,   // no rotation
+                        G4ThreeVector(0., 0., -GetInst().GetabsoThickness()/2), // its position
+                        gapLV, // its logical volume
+                        "Gap", // its name
+                        layerLV, // its mother  volume
+                        false, // no boolean operation
+                        0,   // copy number
+                        fCheckOverlaps); // checking overlaps
+
+        }
 
         //
         // print parameters

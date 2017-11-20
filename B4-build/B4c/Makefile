@@ -688,6 +688,36 @@ src/Minimizer.cc.s:
 	cd /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build && $(MAKE) -f B4c/CMakeFiles/exampleB4c.dir/build.make B4c/CMakeFiles/exampleB4c.dir/src/Minimizer.cc.s
 .PHONY : src/Minimizer.cc.s
 
+src/PCAToy.o: src/PCAToy.cc.o
+
+.PHONY : src/PCAToy.o
+
+# target to build an object file
+src/PCAToy.cc.o:
+	cd /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build && $(MAKE) -f B4c/CMakeFiles/Analysis.dir/build.make B4c/CMakeFiles/Analysis.dir/src/PCAToy.cc.o
+	cd /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build && $(MAKE) -f B4c/CMakeFiles/exampleB4c.dir/build.make B4c/CMakeFiles/exampleB4c.dir/src/PCAToy.cc.o
+.PHONY : src/PCAToy.cc.o
+
+src/PCAToy.i: src/PCAToy.cc.i
+
+.PHONY : src/PCAToy.i
+
+# target to preprocess a source file
+src/PCAToy.cc.i:
+	cd /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build && $(MAKE) -f B4c/CMakeFiles/Analysis.dir/build.make B4c/CMakeFiles/Analysis.dir/src/PCAToy.cc.i
+	cd /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build && $(MAKE) -f B4c/CMakeFiles/exampleB4c.dir/build.make B4c/CMakeFiles/exampleB4c.dir/src/PCAToy.cc.i
+.PHONY : src/PCAToy.cc.i
+
+src/PCAToy.s: src/PCAToy.cc.s
+
+.PHONY : src/PCAToy.s
+
+# target to generate assembly for a file
+src/PCAToy.cc.s:
+	cd /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build && $(MAKE) -f B4c/CMakeFiles/Analysis.dir/build.make B4c/CMakeFiles/Analysis.dir/src/PCAToy.cc.s
+	cd /home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build && $(MAKE) -f B4c/CMakeFiles/exampleB4c.dir/build.make B4c/CMakeFiles/exampleB4c.dir/src/PCAToy.cc.s
+.PHONY : src/PCAToy.cc.s
+
 src/RootClasses_dict.o: src/RootClasses_dict.cc.o
 
 .PHONY : src/RootClasses_dict.o
@@ -813,6 +843,9 @@ help:
 	@echo "... src/Minimizer.o"
 	@echo "... src/Minimizer.i"
 	@echo "... src/Minimizer.s"
+	@echo "... src/PCAToy.o"
+	@echo "... src/PCAToy.i"
+	@echo "... src/PCAToy.s"
 	@echo "... src/RootClasses_dict.o"
 	@echo "... src/RootClasses_dict.i"
 	@echo "... src/RootClasses_dict.s"
