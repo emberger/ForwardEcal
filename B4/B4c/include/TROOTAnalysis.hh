@@ -56,7 +56,7 @@ class TROOTAnalysis {
 
 public:
 TROOTAnalysis();
-TROOTAnalysis(std::unique_ptr<TChain> &ch);
+TROOTAnalysis(std::unique_ptr<TChain> &ch, Double_t prodist);
 
 ~TROOTAnalysis();
 

@@ -4,7 +4,7 @@ TROOTAnalysis::TROOTAnalysis(){
 }
 
 
-TROOTAnalysis::TROOTAnalysis(std::unique_ptr<TChain> &ch) :
+TROOTAnalysis::TROOTAnalysis(std::unique_ptr<TChain> &ch ,Double_t prodist) :
 
         EcalTree(ch->GetTree()),
 
@@ -15,9 +15,8 @@ TROOTAnalysis::TROOTAnalysis(std::unique_ptr<TChain> &ch) :
         dx2(new TH1D("DeltaX_photon1_noPCA","DeltaX_photon1_noPCA", 1000,-3,3)),
         dy2(new TH1D("DeltaY_photon1_noPCA","DeltaY_photon1_noPCA", 1000,-3,3)),
         dz2(new TH1D("DeltaZ_photon1_noPCA","DeltaZ_photon1_noPCA", 1000,-3,3)),
-        projectionC(new TCanvas("ProjectionC", "ProjectionC")),
-        projection_pca(new TH2D("Prjection", "Projection", 10000,-2000,0,10000,-2000,0)),
-        projection_minimization(new TH2D("Prjection", "Projection", 10000,-2000,0,10000,-2000,0))
+        projectionC(new TCanvas("ProjectionC", "ProjectionC"))
+
 
 {
 
@@ -37,6 +36,8 @@ TROOTAnalysis::TROOTAnalysis(std::unique_ptr<TChain> &ch) :
         calsizeXY=Cevent->calsizeXY();
         nofLayers=Cevent->NumberOfLayers();
         absofirst=Cevent->GetAbsFirst();
+        gunposition=Cevent->GunPos();
+        TVector3 true_direction = Cevent->MomentumPh1();
 
         std::cout<<"Absorber thickness is "<<AbsoThickness<<"mm"<<std::endl;
         std::cout<<"Scintillator thickness is "<<GapThickness<<"mm"<<std::endl;
@@ -50,11 +51,21 @@ TROOTAnalysis::TROOTAnalysis(std::unique_ptr<TChain> &ch) :
 
         std::unique_ptr<TH2D> _h1(new TH2D("h1", "h1", histsizeX+1,-0.5,histsizeX+0.5,histsizeY+1,-0.5,histsizeY+0.5));
         std::unique_ptr<TH2D> _h2(new TH2D("h2", "h2", histsizeX+1,-0.5,histsizeX+0.5,histsizeY+1,-0.5,histsizeY+0.5));
-        //std::unique_ptr<TH3D> _h3(new TH3D("h3", "h3",histsizeX, 0, histsizeX, histsizeY,0, histsizeY, histsizeZ,0,histsizeZ));
 
         h1=std::move(_h1);
         h2=std::move(_h2);
-        //  h3=std::move(_h3);
+
+        Double_t k=(-prodist-gunposition.Z())/true_direction.Z();
+
+        TVector3 Intersect(gunposition.X()+k*true_direction.X(),
+                           gunposition.Y()+k*true_direction.Y(),
+                           gunposition.Z()+k*true_direction.Z());
+
+        std::unique_ptr<TH2D> _projection_pca(new TH2D("Prjection_pca", "Projection_pca", 2000,Intersect.X()-1000.0,Intersect.X()+1000.0,10000,Intersect.Y()-1000,Intersect.Y()+1000));
+        std::unique_ptr<TH2D> _projection_minimization(new TH2D("Prjection_minimization", "Projection_minimization", 2000,Intersect.X()-1000.0,Intersect.X()+1000.0,10000,Intersect.Y()-1000.0,Intersect.Y()+1000.0));
+
+        projection_pca=std::move(_projection_pca);
+        projection_minimization=std::move(_projection_minimization);
 
         auto now = std::chrono::system_clock::now();
         auto ms = std::chrono::time_point_cast<std::chrono::milliseconds>(now).time_since_epoch().count();
@@ -860,10 +871,11 @@ void TROOTAnalysis::PlotProjection(Double_t distance, Int_t event){
 
 
                 projection_pca->Fill(Intersect.X(), Intersect.Y());
-                
+
+
         }
 
-        else {
+        else if(flg) {
                 Double_t k=(-distance-DirectionPhoton1[event].first.Z())/DirectionPhoton1[event].second.Z();
 
                 TVector3 Intersect(DirectionPhoton1[event].first.X()+k*DirectionPhoton1[event].second.X(),
@@ -1000,7 +1012,8 @@ Bool_t TROOTAnalysis::PCAEvent(Int_t event){
 
                         eigenVecs.push_back(temp);
                 }
-                EstimatePhoton1.push_back(std::make_pair(TVector3(showerCOG.at(0), showerCOG.at(1), showerCOG.at(2)), eigenVecs[0]));
+                EstimatePhoton1.push_back(std::make_pair(TVector3(showerCOG.at(0), showerCOG.at(1), showerCOG.at(2)),
+                                                         TVector3(eigenVecs[0].Z(), eigenVecs[0].Y(), eigenVecs[0].X())));
                 return true;
         }
         else {
@@ -1252,7 +1265,7 @@ void TROOTAnalysis::DrawHists(){
         D->cd(6);
         dz2->Draw();
 
-        projectionC->Divide(3,1,0.01,0.01);
+        projectionC->Divide(2,2,0.01,0.01);
 
         projectionC->cd(1);
         projection_pca->Draw("colz");
@@ -1260,11 +1273,11 @@ void TROOTAnalysis::DrawHists(){
         projectionC->cd(2);
         projection_minimization->Draw("colz");
 
-        projectionC->cd(3);
-        projection_correlation->Draw("colz");
+        // projectionC->cd(3);
+        // projection_correlation->Draw("colz");
 
-        std::string path=savepath+"/"+filename+"_.root";
-        projectionC->Print(path.c_str());
+        // std::string path=savepath+"/"+filename+"_.root";
+        // projectionC->Print(path.c_str());
 
         // path=savepath+"/"+filename+".pdf";
         // projectionC->Print(path.c_str());

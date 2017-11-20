@@ -38,28 +38,19 @@ int main(int argc, char * argv[]) {
 //    gStyle->SetTitleOffset(1.3,"x");
 //    gStyle->SetTitleOffset(1.3,"y");
         Double_t cut= std::stod(argv[1]);
-        // std::string treepath= argv[2];
-        // std::string anapath= argv[5];
+        Double_t distance=std::stod(argv[2]);
 
         std::unique_ptr<TChain> ch1(new TChain("eventTree"));
         ch1->Add("SinglePhoton.root");
         ch1->Draw("");
         //std::cout<<"hello"<<std::endl;
-        TROOTAnalysis A(ch1);
-
-        //A.SetPathandFilename(argv[3], argv[4]);
-
-
+        TROOTAnalysis A(ch1,distance);
 
         Double_t entries=A.GetNofEntries();
+
         Int_t eventA=0;
 
         Int_t progress=0;
-        //A.SampleFromHIst();
-        //A.CalcAngularResolution(anapath);
-
-        //shared_ptr<B4ROOTEvent> Cevent(new B4ROOTEvent());
-        //EcalTree->SetBranchAddress("EventBranch", &Cevent);
 
         std::unique_ptr<TCanvas> cdir(new TCanvas("PCAReconstruction"));
 
@@ -89,15 +80,14 @@ int main(int argc, char * argv[]) {
                 //A.PrintEdep();
                 if(A.PCAEvent(i)) {
 
-
+                        A.PlotProjection(distance, eventA);
 
                         TVector3 direction=A.EstimatePhoton1[eventA].second.Unit();
 
                         //std::cout<<"Direction: "<<std::endl;
-                        hx->Fill(direction.Z());
+                        hx->Fill(direction.X());
                         hy->Fill(direction.Y());
-                        hz->Fill(direction.X());
-
+                        hz->Fill(direction.Z());
                         // A.CalcCOGPion(eventA);
                         // A.FitCOGsPion(eventA);
 
@@ -120,7 +110,6 @@ int main(int argc, char * argv[]) {
                   <<" milliseconds"<<std::endl;
         start = std::chrono::steady_clock::now();
 
-        A.DirectionPhoton1.clear();
         A.flg=true;
         for(Int_t i=0; i<entries; i++) {
 
@@ -132,7 +121,8 @@ int main(int argc, char * argv[]) {
                 A.CalcCOGPion(i);
                 A.FitCOGsPion(i);
 
-                //std::pair<TVector3, TVector3> ca= A.FindClosestApproach(event);
+                A.PlotProjection(distance, i);
+                //std::pair<TVector3, TVector3> ca = A.FindClosestApproach(event);
 
                 //A.GetInvariantMass(event);
 
