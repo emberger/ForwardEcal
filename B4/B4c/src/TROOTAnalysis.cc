@@ -15,7 +15,8 @@ TROOTAnalysis::TROOTAnalysis(std::unique_ptr<TChain> &ch,Double_t prodist) :
         dx2(new TH1D("DeltaX_photon1_noPCA","DeltaX_photon1_noPCA", 1000,-3,3)),
         dy2(new TH1D("DeltaY_photon1_noPCA","DeltaY_photon1_noPCA", 1000,-3,3)),
         dz2(new TH1D("DeltaZ_photon1_noPCA","DeltaZ_photon1_noPCA", 1000,-3,3)),
-        projectionC(new TCanvas("ProjectionC", "ProjectionC"))
+        projectionC(new TCanvas("ProjectionC", "ProjectionC")),
+        correlationC(new TCanvas("CorrelationC", "CorrelationC"))
 
 
 {
@@ -62,17 +63,28 @@ TROOTAnalysis::TROOTAnalysis(std::unique_ptr<TChain> &ch,Double_t prodist) :
                            gunposition.Z()+k*true_direction.Z());
         projection_true=Intersect;
 
-        std::unique_ptr<TH2D> _projection_pca(new TH2D("Projection_pca", "Projection_pca", 2000,Intersect.X()-1000.0,Intersect.X()+1000.0,10000,Intersect.Y()-1000,Intersect.Y()+1000));
-        std::unique_ptr<TH2D> _projection_minimization(new TH2D("Projection_minimization", "Projection_minimization",2000,Intersect.X()-1000.0,Intersect.X()+1000.0,10000,Intersect.Y()-1000.0,Intersect.Y()+1000.0));
-        std::unique_ptr<TH2D> _projection_corrleationX(new TH2D("projection_correlationX", "projection_correlationX",2000,Intersect.X()-1000.0,Intersect.X()+1000.0,10000,Intersect.Y()-1000.0,Intersect.Y()+1000.0));
-        std::unique_ptr<TH2D> _projection_corrleationY(new TH2D("projection_correlationY", "projection_correlationY",2000,Intersect.X()-1000.0,Intersect.X()+1000.0,10000,Intersect.Y()-1000.0,Intersect.Y()+1000.0));
-        std::unique_ptr<TH2D> _projection_correlationDeltaR(new TH2D("projection_correlationDeltaR","projection_correlationDeltaR", 1000,-500,500,1000,-500,500));
-
+        std::unique_ptr<TH2D> _projection_pca(new TH2D("Projection_pca", "Projection_pca",
+                                                       2000,Intersect.X()-1000.0,Intersect.X()+1000.0,2000,Intersect.Y()-1000,Intersect.Y()+1000));
         projection_pca=std::move(_projection_pca);
+
+        std::unique_ptr<TH2D> _projection_minimization(new TH2D("Projection_minimization", "Projection_minimization",
+                                                                2000,Intersect.X()-1000.0,Intersect.X()+1000.0,2000,Intersect.Y()-1000.0,Intersect.Y()+1000.0));
         projection_minimization=std::move(_projection_minimization);
+
+        std::unique_ptr<TH2D> _projection_corrleationX(new TH2D("projection_correlationX", "projection_correlationX",
+                                                                2000,Intersect.X()-500.0,Intersect.X()+500.0,2000,Intersect.Y()-500.0,Intersect.Y()+500.0));
         projection_correlationX=std::move(_projection_corrleationX);
+
+        std::unique_ptr<TH2D> _projection_corrleationY(new TH2D("projection_correlationY", "projection_correlationY",
+                                                                2000,Intersect.X()-500.0,Intersect.X()+500.0,2000,Intersect.Y()-500.0,Intersect.Y()+500.0));
         projection_correlationY=std::move(_projection_corrleationY);
+
+        std::unique_ptr<TH2D> _projection_correlationDeltaR(new TH2D("projection_correlationDeltaR","projection_correlationDeltaR", 401,-100,300,401,-100,300));
         projection_correlationDeltaR=std::move(_projection_correlationDeltaR);
+
+        std::unique_ptr<TH1D> _projection_correlationDeltaRdiff(new TH1D("projection_DeltaRdifference","projection_DealtaRdiff", 1001,-500,500));
+        projection_correlationDeltaRdiff=std::move(_projection_correlationDeltaRdiff);
+
 
         std::unique_ptr<TLine> _line_x(new TLine(Intersect.X(),Intersect.Y()-1000,Intersect.X(), Intersect.Y()));
         std::unique_ptr<TLine> _line_y(new TLine(Intersect.X()-1000.0,Intersect.Y(),Intersect.X(), Intersect.Y()));
@@ -901,8 +913,9 @@ void TROOTAnalysis::PlotProjection(Double_t distance, Int_t event){
         projection_correlationX->Fill(Intersect_pca.X(), Intersect_min.X());
         projection_correlationY->Fill(Intersect_pca.Y(), Intersect_min.Y());
 
-        projection_correlationDeltaR->Fill((Intersect_pca-projection_true).Mag(), (Intersect_min-projection_true).Mag());
 
+        projection_correlationDeltaR->Fill((Intersect_pca-projection_true).Mag(), (Intersect_min-projection_true).Mag());
+        projection_correlationDeltaRdiff->Fill((Intersect_pca-projection_true).Mag() - (Intersect_min-projection_true).Mag());
 }
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1029,7 +1042,7 @@ Bool_t TROOTAnalysis::PCAEvent(Int_t event){
 
                         eigenVecs.push_back(temp);
                 }
-                EstimatePhoton1.push_back(std::make_pair(TVector3(showerCOG.at(0), showerCOG.at(1), showerCOG.at(2)),
+                EstimatePhoton1.push_back(std::make_pair(TVector3(showerCOG.at(2), showerCOG.at(1), showerCOG.at(0)),
                                                          TVector3(eigenVecs[0].Z(), eigenVecs[0].Y(), eigenVecs[0].X())));
                 return true;
         }
@@ -1282,7 +1295,7 @@ void TROOTAnalysis::DrawHists(){
         D->cd(6);
         dz2->Draw();
 
-        projectionC->Divide(3,2,0.01,0.01);
+        projectionC->Divide(2,1,0.01,0.01);
 
         projectionC->cd(1);
         projection_pca->Draw("colz");
@@ -1302,14 +1315,43 @@ void TROOTAnalysis::DrawHists(){
         line_x->Draw();
         line_y->Draw();
 
-        projectionC->cd(3);
+        correlationC->Divide(2,2, 0.01,0.01);
+
+        correlationC->cd(1);
+        projection_correlationX->GetXaxis()->SetTitle("X coordinate of penetration point(orth. distance regeression)[mm]");
+        projection_correlationX->GetYaxis()->SetTitle("X coordinate of penetration point(PCA)[mm]");
+        projection_correlationX->GetYaxis()->SetTitleOffset(1.4);
+
+        std::unique_ptr<TF1> f1(new TF1("f1", "[0]*x+[1]"));
+      //  projection_correlationX->Fit("f1");
+
         projection_correlationX->Draw("colz");
 
-        projectionC->cd(4);
+        correlationC->cd(2);
+        projection_correlationY->GetXaxis()->SetTitle("Y coordinate of penetration point(orth. distance regeression)[mm]");
+        projection_correlationY->GetYaxis()->SetTitle("Y coordinate of penetration point(PCA)[mm]");
+        projection_correlationY->GetYaxis()->SetTitleOffset(1.4);
+
+        //projection_correlationY->Fit("f1");
+
         projection_correlationY->Draw("colz");
 
-        projectionC->cd(5);
+
+
+        projection_correlationDeltaR->GetXaxis()->SetTitle("Distance to true projection point(orth. distance regeression)[mm]");
+        projection_correlationDeltaR->GetYaxis()->SetTitle("Distance to true projection point(PCA)[mm]");
+        projection_correlationDeltaR->GetYaxis()->SetTitleOffset(1.4);
+
+        correlationC->cd(3);
         projection_correlationDeltaR->Draw("colz");
+
+        projection_correlationDeltaRdiff->GetXaxis()->SetTitle("distance-to-true(PCA)-distance-to-true(ODR)[mm]");
+        projection_correlationDeltaRdiff->GetYaxis()->SetTitle("Entries");
+        projection_correlationDeltaRdiff->GetYaxis()->SetTitleOffset(1.4);
+
+        correlationC->cd(4);
+        projection_correlationDeltaRdiff->Draw("colz");
+
 
         // projectionC->cd(3);
         // projection_correlation->Draw("colz");

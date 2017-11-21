@@ -171,9 +171,15 @@ std::unique_ptr<TH1D> dz2;
 std::unique_ptr<TCanvas> projectionC;
 std::unique_ptr<TH2D> projection_pca;
 std::unique_ptr<TH2D> projection_minimization;
+
+std::unique_ptr<TCanvas> correlationC;
 std::unique_ptr<TH2D> projection_correlationX;
 std::unique_ptr<TH2D> projection_correlationY;
+
+
 std::unique_ptr<TH2D> projection_correlationDeltaR;
+std::unique_ptr<TH1D> projection_correlationDeltaRdiff;
+
 
 std::unique_ptr<TLine> line_x;
 std::unique_ptr<TLine> line_y;
