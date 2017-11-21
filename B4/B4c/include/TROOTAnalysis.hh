@@ -125,6 +125,7 @@ Bool_t absofirst;
 Bool_t pathset=false;
 
 TVector3 gunposition;
+TVector3 projection_true;
 
 std::vector<std::tuple<Double_t,Double_t, Double_t, Double_t, Double_t, Double_t> > coglist;
 
@@ -170,7 +171,13 @@ std::unique_ptr<TH1D> dz2;
 std::unique_ptr<TCanvas> projectionC;
 std::unique_ptr<TH2D> projection_pca;
 std::unique_ptr<TH2D> projection_minimization;
-std::unique_ptr<TH2D> projection_correlation;
+std::unique_ptr<TH2D> projection_correlationX;
+std::unique_ptr<TH2D> projection_correlationY;
+std::unique_ptr<TH2D> projection_correlationDeltaR;
+
+std::unique_ptr<TLine> line_x;
+std::unique_ptr<TLine> line_y;
+
 
 // TCanvas * showerdepth = new TCanvas("showerDepthC", "showerDepthC");
 // TH1D * showerdepthH = new TH1D("showerDepth", "showerDepth", 100,0,100);

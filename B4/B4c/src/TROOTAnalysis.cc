@@ -4,7 +4,7 @@ TROOTAnalysis::TROOTAnalysis(){
 }
 
 
-TROOTAnalysis::TROOTAnalysis(std::unique_ptr<TChain> &ch ,Double_t prodist) :
+TROOTAnalysis::TROOTAnalysis(std::unique_ptr<TChain> &ch,Double_t prodist) :
 
         EcalTree(ch->GetTree()),
 
@@ -60,12 +60,26 @@ TROOTAnalysis::TROOTAnalysis(std::unique_ptr<TChain> &ch ,Double_t prodist) :
         TVector3 Intersect(gunposition.X()+k*true_direction.X(),
                            gunposition.Y()+k*true_direction.Y(),
                            gunposition.Z()+k*true_direction.Z());
+        projection_true=Intersect;
 
-        std::unique_ptr<TH2D> _projection_pca(new TH2D("Prjection_pca", "Projection_pca", 2000,Intersect.X()-1000.0,Intersect.X()+1000.0,10000,Intersect.Y()-1000,Intersect.Y()+1000));
-        std::unique_ptr<TH2D> _projection_minimization(new TH2D("Prjection_minimization", "Projection_minimization", 2000,Intersect.X()-1000.0,Intersect.X()+1000.0,10000,Intersect.Y()-1000.0,Intersect.Y()+1000.0));
+        std::unique_ptr<TH2D> _projection_pca(new TH2D("Projection_pca", "Projection_pca", 2000,Intersect.X()-1000.0,Intersect.X()+1000.0,10000,Intersect.Y()-1000,Intersect.Y()+1000));
+        std::unique_ptr<TH2D> _projection_minimization(new TH2D("Projection_minimization", "Projection_minimization",2000,Intersect.X()-1000.0,Intersect.X()+1000.0,10000,Intersect.Y()-1000.0,Intersect.Y()+1000.0));
+        std::unique_ptr<TH2D> _projection_corrleationX(new TH2D("projection_correlationX", "projection_correlationX",2000,Intersect.X()-1000.0,Intersect.X()+1000.0,10000,Intersect.Y()-1000.0,Intersect.Y()+1000.0));
+        std::unique_ptr<TH2D> _projection_corrleationY(new TH2D("projection_correlationY", "projection_correlationY",2000,Intersect.X()-1000.0,Intersect.X()+1000.0,10000,Intersect.Y()-1000.0,Intersect.Y()+1000.0));
+        std::unique_ptr<TH2D> _projection_correlationDeltaR(new TH2D("projection_correlationDeltaR","projection_correlationDeltaR", 1000,-500,500,1000,-500,500));
 
         projection_pca=std::move(_projection_pca);
         projection_minimization=std::move(_projection_minimization);
+        projection_correlationX=std::move(_projection_corrleationX);
+        projection_correlationY=std::move(_projection_corrleationY);
+        projection_correlationDeltaR=std::move(_projection_correlationDeltaR);
+
+        std::unique_ptr<TLine> _line_x(new TLine(Intersect.X(),Intersect.Y()-1000,Intersect.X(), Intersect.Y()));
+        std::unique_ptr<TLine> _line_y(new TLine(Intersect.X()-1000.0,Intersect.Y(),Intersect.X(), Intersect.Y()));
+
+        line_x=std::move(_line_x);
+        line_y=std::move(_line_y);
+
 
         auto now = std::chrono::system_clock::now();
         auto ms = std::chrono::time_point_cast<std::chrono::milliseconds>(now).time_since_epoch().count();
@@ -861,30 +875,34 @@ void TROOTAnalysis::PrintERes(){
 
 
 void TROOTAnalysis::PlotProjection(Double_t distance, Int_t event){
-        if(!flg) {
-
-                Double_t k=(-distance-EstimatePhoton1[event].first.Z())/EstimatePhoton1[event].second.Z();
-
-                TVector3 Intersect(EstimatePhoton1[event].first.X()+k*EstimatePhoton1[event].second.X(),
-                                   EstimatePhoton1[event].first.Y()+k*EstimatePhoton1[event].second.Y(),
-                                   EstimatePhoton1[event].first.Z()+k*EstimatePhoton1[event].second.Z());
 
 
-                projection_pca->Fill(Intersect.X(), Intersect.Y());
+        Double_t k=(-distance-EstimatePhoton1[event].first.Z())/EstimatePhoton1[event].second.Z();
+
+        TVector3 Intersect_pca(EstimatePhoton1[event].first.X()+k*EstimatePhoton1[event].second.X(),
+                               EstimatePhoton1[event].first.Y()+k*EstimatePhoton1[event].second.Y(),
+                               EstimatePhoton1[event].first.Z()+k*EstimatePhoton1[event].second.Z());
 
 
-        }
+        projection_pca->Fill(Intersect_pca.X(), Intersect_pca.Y());
 
-        else if(flg) {
-                Double_t k=(-distance-DirectionPhoton1[event].first.Z())/DirectionPhoton1[event].second.Z();
 
-                TVector3 Intersect(DirectionPhoton1[event].first.X()+k*DirectionPhoton1[event].second.X(),
-                                   DirectionPhoton1[event].first.Y()+k*DirectionPhoton1[event].second.Y(),
-                                   DirectionPhoton1[event].first.Z()+k*DirectionPhoton1[event].second.Z());
 
-                projection_minimization->Fill(Intersect.X(), Intersect.Y());
 
-        }
+
+        k=(-distance-DirectionPhoton1[event].first.Z())/DirectionPhoton1[event].second.Z();
+
+        TVector3 Intersect_min(DirectionPhoton1[event].first.X()+k*DirectionPhoton1[event].second.X(),
+                               DirectionPhoton1[event].first.Y()+k*DirectionPhoton1[event].second.Y(),
+                               DirectionPhoton1[event].first.Z()+k*DirectionPhoton1[event].second.Z());
+
+        projection_minimization->Fill(Intersect_min.X(), Intersect_min.Y());
+
+
+        projection_correlationX->Fill(Intersect_pca.X(), Intersect_min.X());
+        projection_correlationY->Fill(Intersect_pca.Y(), Intersect_min.Y());
+
+        projection_correlationDeltaR->Fill((Intersect_pca-projection_true).Mag(), (Intersect_min-projection_true).Mag());
 
 }
 
@@ -1265,13 +1283,34 @@ void TROOTAnalysis::DrawHists(){
         D->cd(6);
         dz2->Draw();
 
-        projectionC->Divide(2,2,0.01,0.01);
+        projectionC->Divide(3,2,0.01,0.01);
 
         projectionC->cd(1);
         projection_pca->Draw("colz");
+        line_x->SetLineColor(kRed);
+        line_x->SetLineWidth(2);
+        line_y->SetLineColor(kRed);
+        line_y->SetLineWidth(2);
+        line_x->Draw();
+        line_y->Draw();
 
         projectionC->cd(2);
         projection_minimization->Draw("colz");
+        line_x->SetLineColor(kRed);
+        line_x->SetLineWidth(2);
+        line_y->SetLineColor(kRed);
+        line_y->SetLineWidth(2);
+        line_x->Draw();
+        line_y->Draw();
+
+        projectionC->cd(3);
+        projection_correlationX->Draw("colz");
+
+        projectionC->cd(4);
+        projection_correlationY->Draw("colz");
+
+        projectionC->cd(5);
+        projection_correlationDeltaR->Draw("colz");
 
         // projectionC->cd(3);
         // projection_correlation->Draw("colz");

@@ -70,7 +70,7 @@ int main(int argc, char * argv[]) {
 
 
 
-        A.flg=false;
+
         //entries=100000;
         for(Int_t i=0; i<entries; i++) {
 
@@ -79,8 +79,8 @@ int main(int argc, char * argv[]) {
                 A.ApplyCut(cut);
                 //A.PrintEdep();
                 if(A.PCAEvent(i)) {
+                        A.flg=false;
 
-                        A.PlotProjection(distance, eventA);
 
                         TVector3 direction=A.EstimatePhoton1[eventA].second.Unit();
 
@@ -91,7 +91,15 @@ int main(int argc, char * argv[]) {
                         // A.CalcCOGPion(eventA);
                         // A.FitCOGsPion(eventA);
 
+                        A.flg=true;
+
+                        A.CalcCOGPion(eventA);
+                        A.FitCOGsPion(eventA);
+
+                        A.PlotProjection(distance, eventA);
+
                         eventA++;
+
                 }
 
                 progress = ((Double_t)i /entries) * 100;
@@ -108,36 +116,33 @@ int main(int argc, char * argv[]) {
         std::cout << "Computing took "
                   << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
                   <<" milliseconds"<<std::endl;
-        start = std::chrono::steady_clock::now();
-
-        A.flg=true;
-        for(Int_t i=0; i<entries; i++) {
-
-                A.EcalTree->GetEntry(i);
-
-                A.ApplyCut(cut);
-
-
-                A.CalcCOGPion(i);
-                A.FitCOGsPion(i);
-
-                A.PlotProjection(distance, i);
-                //std::pair<TVector3, TVector3> ca = A.FindClosestApproach(event);
-
-                //A.GetInvariantMass(event);
-
-
-
-                //A.PionLocator(event, ca);
-                progress = ((Double_t)i /entries) * 100;
-
-
-                if ((Int_t)progress % 5 == 0)
-                {
-                        std::cout << "\r" << std::string(progress/5, '|') << progress << "%";
-                        std::cout.flush();
-                }
-        }
+        // start = std::chrono::steady_clock::now();
+        //
+        // eventA=0;
+        //
+        // for(Int_t i=0; i<entries; i++) {
+        //
+        //         A.EcalTree->GetEntry(i);
+        //
+        //         A.ApplyCut(cut);
+        //
+        //         if(A.PCAEvent(i)) {
+        //                 A.CalcCOGPion(eventA);
+        //                 A.FitCOGsPion(eventA);
+        //
+        //                 A.PlotProjection(distance, eventA);
+        //
+        //                 eventA++;
+        //         }
+        //         progress = ((Double_t)i /entries) * 100;
+        //
+        //
+        //         if ((Int_t)progress % 5 == 0)
+        //         {
+        //                 std::cout << "\r" << std::string(progress/5, '|') << progress << "%";
+        //                 std::cout.flush();
+        //         }
+        // }
 
         TF1 *f1 = new TF1("f1","gaus",-1,1);
         f1->SetRange(-1,1);
@@ -157,10 +162,10 @@ int main(int argc, char * argv[]) {
 
         A.DrawHists();
 
-        end = std::chrono::steady_clock::now();
-        std::cout << "Computing took "
-                  << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
-                  <<" milliseconds"<<std::endl;
+        // end = std::chrono::steady_clock::now();
+        // std::cout << "Computing took "
+        //           << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
+        //           <<" milliseconds"<<std::endl;
         app->Run();
         return 0;
 }
