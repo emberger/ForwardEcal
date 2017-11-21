@@ -80,7 +80,6 @@ TROOTAnalysis::TROOTAnalysis(std::unique_ptr<TChain> &ch,Double_t prodist) :
         line_x=std::move(_line_x);
         line_y=std::move(_line_y);
 
-
         auto now = std::chrono::system_clock::now();
         auto ms = std::chrono::time_point_cast<std::chrono::milliseconds>(now).time_since_epoch().count();
         Int_t seed = ms;

@@ -181,7 +181,7 @@ GCCXML:FILEPATH=GCCXML-NOTFOUND
 GENREFLEX_EXECUTABLE:FILEPATH=/opt/root/5.34/bin/genreflex
 
 //No help, variable specified on the command line.
-Geant4_DIR:UNINITIALIZED=/remote/pcilc7/software/Geant4/geant4.10.03.p01-install/lib/Geant4-10.3.1/
+Geant4_DIR:UNINITIALIZED=/remote/pcilc7/software/Geant4_10.3.3/geant4.10.03.p03-install/lib/Geant4-10.3.3/
 
 //Value Computed by CMake
 Project_BINARY_DIR:STATIC=/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4-build

@@ -51,7 +51,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/opt/root/5.34/include"
   "/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4/B4c/include"
   "/home/iwsatlas1/emberger/Geant4/Current/ForwardEcal/B4/B4c"
-  "/remote/pcilc7/software/Geant4/geant4.10.03.p01-install/include/Geant4"
+  "/remote/pcilc7/software/Geant4_10.3.3/geant4.10.03.p03-install/include/Geant4"
   "/usr/include/qt5"
   "/usr/include/qt5/QtWidgets"
   "/usr/include/qt5/QtGui"
