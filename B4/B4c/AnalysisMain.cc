@@ -116,33 +116,7 @@ int main(int argc, char * argv[]) {
         std::cout << "Computing took "
                   << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
                   <<" milliseconds"<<std::endl;
-        // start = std::chrono::steady_clock::now();
-        //
-        // eventA=0;
-        //
-        // for(Int_t i=0; i<entries; i++) {
-        //
-        //         A.EcalTree->GetEntry(i);
-        //
-        //         A.ApplyCut(cut);
-        //
-        //         if(A.PCAEvent(i)) {
-        //                 A.CalcCOGPion(eventA);
-        //                 A.FitCOGsPion(eventA);
-        //
-        //                 A.PlotProjection(distance, eventA);
-        //
-        //                 eventA++;
-        //         }
-        //         progress = ((Double_t)i /entries) * 100;
-        //
-        //
-        //         if ((Int_t)progress % 5 == 0)
-        //         {
-        //                 std::cout << "\r" << std::string(progress/5, '|') << progress << "%";
-        //                 std::cout.flush();
-        //         }
-        // }
+
 
         TF1 *f1 = new TF1("f1","gaus",-1,1);
         f1->SetRange(-1,1);

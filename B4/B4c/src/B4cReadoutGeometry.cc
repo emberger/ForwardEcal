@@ -42,11 +42,11 @@ G4VPhysicalVolume* MyRO::Build(){
 								// Geometry parameters also for Detector Construction
 								GetInst().SetfNofLayers(100);		// in #
 								GetInst().SetcalorSizeXY(2000); // in mm
-								GetInst().SettileLenX(10); // in mm
-								GetInst().SettileLenY(10); // in mm
+								GetInst().SettileLenX(20); // in mm
+								GetInst().SettileLenY(20); // in mm
 
 								GetInst().SetabsoThickness(1); // in mm
-								GetInst().SetgapThickness(20); // in mm
+								GetInst().SetgapThickness(5); // in mm
 
 								GetInst().SetAbsFirst(true);    // true if structure should be |Abso-Gap|Abso-Gap|... false if structure should be |Gap-Abso|Gap-Abso|...
 

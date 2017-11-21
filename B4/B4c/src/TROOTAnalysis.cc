@@ -887,19 +887,13 @@ void TROOTAnalysis::PrintERes(){
 
 void TROOTAnalysis::PlotProjection(Double_t distance, Int_t event){
 
-
         Double_t k=(-distance-EstimatePhoton1[event].first.Z())/EstimatePhoton1[event].second.Z();
 
         TVector3 Intersect_pca(EstimatePhoton1[event].first.X()+k*EstimatePhoton1[event].second.X(),
                                EstimatePhoton1[event].first.Y()+k*EstimatePhoton1[event].second.Y(),
                                EstimatePhoton1[event].first.Z()+k*EstimatePhoton1[event].second.Z());
 
-
         projection_pca->Fill(Intersect_pca.X(), Intersect_pca.Y());
-
-
-
-
 
         k=(-distance-DirectionPhoton1[event].first.Z())/DirectionPhoton1[event].second.Z();
 
@@ -912,7 +906,6 @@ void TROOTAnalysis::PlotProjection(Double_t distance, Int_t event){
 
         projection_correlationX->Fill(Intersect_pca.X(), Intersect_min.X());
         projection_correlationY->Fill(Intersect_pca.Y(), Intersect_min.Y());
-
 
         projection_correlationDeltaR->Fill((Intersect_pca-projection_true).Mag(), (Intersect_min-projection_true).Mag());
         projection_correlationDeltaRdiff->Fill((Intersect_pca-projection_true).Mag() - (Intersect_min-projection_true).Mag());
@@ -1139,22 +1132,11 @@ void TROOTAnalysis::CalcCOGPion(Int_t event){            //calculate vector of (
 
         }                 //end of event
 
-
-
         //showerCOGPhoton1.push_back(TransformCoordinates(h3->GetMean(1), h3->GetMean(2), h3->GetMean(3) /*, segment*/));
         COGCollectionPH1.push_back(coglist);
         EnergyPhoton1.push_back(std::make_pair(EGesPH1/0.52, 1 /*segment*/));
         coglist.clear();
 
-        //h3->Reset();
-        // showerdepthH->Fill(nofLayerswithEdep);
-
-
-// totalEnergyH->Fill((EGesPH1+EGesPH2)/1000);
-
-//check->cd(0);
-//h3->GetYaxis()->SetRange(40,60);
-//h3->Draw("*");
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------
@@ -1295,6 +1277,10 @@ void TROOTAnalysis::DrawHists(){
         D->cd(6);
         dz2->Draw();
 
+
+
+
+
         projectionC->Divide(2,1,0.01,0.01);
 
         projectionC->cd(1);
@@ -1323,7 +1309,7 @@ void TROOTAnalysis::DrawHists(){
         projection_correlationX->GetYaxis()->SetTitleOffset(1.4);
 
         std::unique_ptr<TF1> f1(new TF1("f1", "[0]*x+[1]"));
-      //  projection_correlationX->Fit("f1");
+        //  projection_correlationX->Fit("f1");
 
         projection_correlationX->Draw("colz");
 
@@ -1345,7 +1331,7 @@ void TROOTAnalysis::DrawHists(){
         correlationC->cd(3);
         projection_correlationDeltaR->Draw("colz");
 
-        projection_correlationDeltaRdiff->GetXaxis()->SetTitle("distance-to-true(PCA)-distance-to-true(ODR)[mm]");
+        projection_correlationDeltaRdiff->GetXaxis()->SetTitle("distance_to_true(PCA)-distance_to_true(ODR)[mm]");
         projection_correlationDeltaRdiff->GetYaxis()->SetTitle("Entries");
         projection_correlationDeltaRdiff->GetYaxis()->SetTitleOffset(1.4);
 

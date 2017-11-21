@@ -10,6 +10,7 @@
 #pragma GCC diagnostic pop
 
 #include "B4ROOTEvent.hh"
+
 #include "TTree.h"
 #include "TChain.h"
 #include "TCanvas.h"
@@ -63,7 +64,6 @@ TROOTAnalysis(std::unique_ptr<TChain> &ch, Double_t prodist);
 Int_t GetNofEntries();
 
 Bool_t PCAEvent(Int_t event);
-void LoadEvent(Int_t event);
 
 void ApplyCut(Double_t c);
 void PrintEdep();
@@ -73,7 +73,6 @@ void PrintERes();
 void PlotRMSx();
 void plotEvent(Int_t pev);
 void PlotProjection(Double_t distance, Int_t event);    //distance from frontface in mm
-void PlotChimap(Int_t event);
 void CalcCOGPion(Int_t event);
 void FitCOGsPion(Int_t event);
 void DrawHists();
@@ -87,21 +86,17 @@ inline void SetPathandFilename(std::string path, std::string fname){
 
 std::tuple<Double_t, Double_t, Double_t> TransformCoordinates(Double_t x, Double_t y, Double_t z);
 
-std::vector<std::pair< Double_t, Int_t> > EnergyPhoton1;
-std::vector<std::pair<TVector3, TVector3 > > EstimatePhoton1;
-std::vector<std::pair<TVector3, TVector3 > > DirectionPhoton1;
+std::vector<std::pair<Double_t, Int_t> > EnergyPhoton1;
+std::vector<std::pair<TVector3, TVector3> > EstimatePhoton1;
+std::vector<std::pair<TVector3, TVector3> > DirectionPhoton1;
 Bool_t flg;
 std::unique_ptr<TTree> EcalTree;
+
 private:
 
 std::unique_ptr<TRandom3> rndGen;
 
-//TTree* EcalTree;
 B4ROOTEvent * Cevent;
-
-
-//std::unique_ptr<B4ROOTEvent> Cevent;
-
 
 Int_t nofEntries;     // number of events in Tree
 
@@ -155,16 +150,6 @@ std::unique_ptr<TH1D> dz1;
 std::unique_ptr<TH1D> dx2;
 std::unique_ptr<TH1D> dy2;
 std::unique_ptr<TH1D> dz2;
-//
-// std::unique_ptr<TCanvas> Delta1 (new TCanvas("Delta1", "difference of gun positoin to ClosestApproach"));
-// TCanvas * Delta2 = new TCanvas("Delta2", "difference of gun positoin to ClosestApproach");
-// TCanvas * Delta3 = new TCanvas("Delta3", "difference of gun positoin to ClosestApproach");
-// TCanvas * Delta4 = new TCanvas("Delta4", "difference of gun positoin to ClosestApproach");
-//
-// std::unique_ptr<TH1D>  delx (new TH1D("DeltaX_VertexReconstruction", "DeltaX_VertexReconstruction", 1000,-1000,1000));
-// std::unique_ptr<TH1D>  dely (new TH1D("DeltaY_VertexReconstruction", "DeltaY_VertexReconstruction", 1000,-1000,1000));
-// std::unique_ptr<TH1D>  delz (new TH1D("DeltaZ_VertexReconstruction", "DeltaZ_VertexReconstruction", 1000,-1000,1000));
-// std::unique_ptr<TH1D>  appdist1 (new TH1D("Closest Approach Distance", "Closest Approach Distance", 500,0,500));
 
 //hists for backprojection
 
